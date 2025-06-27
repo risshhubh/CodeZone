@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeZone</title>
+    <link rel="shortcut icon" href="favicon.jpeg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+
+            height: 5em;
+            width: 100%;
+
+            border-radius: 8px;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .head nav {
+            background-color: white;
+            height: 50px;
+            box-shadow: -3px -3px 7px #ffffff, 0px 5px 2px #ceced1;
+            margin: 1.5px;
+        }
+        .brand{
+            margin-right: 600px;
+        }
+
+       
+        
+        .head h2 {
+            margin-left: 40px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 30px;
+            color: #480072;
+
+        }
+
+        .head nav ul {
+            display: flex;
+            list-style-type: none;
+            padding: 2px;
+            font-weight: 500;
+        }
+
+        .head nav h2 {
+
+            margin-right: auto;
+        }
+
+        .head nav li {
+            display: flex;
+            margin-right: 50px;
+            padding: 3px;
+            color: #ffffff;
+
+        }
+
+        .head nav li a {
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            color: #504a4a;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: .7px;
+            border-radius: 36px;
+            line-height: 2;
+            transition: .3s;
+        }
+
+        .head nav li a:hover {
+            color: rgb(0, 0, 0);
+            text-shadow: 0.5px 1px 4px rgb(171, 167, 167);
+
+        }
+        @media only screen and (max-width: 1440px){
+            .head nav ul li{
+                margin-right: 50px;
+            }
+        }
+        @media only screen and (max-width: 1024px) {
+            .brand {
+                margin-right: 180px;
+            }
+
+            .head nav ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                
+                
+        }
+        .head nav ul li {
+            margin-right: 40px;
+            }
+        }
+        @media only screen and (max-width: 768px) {
+            .brand {
+                margin-right: 20px;
+            }
+
+            .head nav ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                
+                
+        }
+
+        .head nav ul li {
+            margin-right: 40px;
+            }
+        }
+        @media only screen and (max-width: 500px) {
+            .brand {
+                margin-right: 10px;
+            }
+
+            .head nav ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                
+                
+        }
+
+        .head nav ul li {
+            margin-right: 10px;
+            }
+        }
+
+        .container {
+
+            display: flex;
+            align-items: stretch;
+            margin-left: 10px;
+        }
+
+        form {
+            margin-right: 50px;
+            color: #555;
+            display: flex;
+            margin-top: 7px;
+            border: 1.5px solid rgb(201, 195, 195);
+            border-radius: 6px;
+            margin-left: 10px;
+            height: 30px;
+
+        }
+
+        @media only screen and (max-width: 768px) {
+            form {
+                height: 0px;
+                width: 0px;
+                border-style: none;
+            }
+        }
+
+        @media only screen and (max-width: 425px) {
+            form {
+                height: 0px;
+                width: 0px;
+                border-style: none;
+            }
+        }
+
+        input[type="search"] {
+            border: none;
+            background: transparent;
+            margin: 0;
+            padding: 4px 5px;
+            font-size: 14px;
+            color: inherit;
+            border: 1px solid transparent;
+            border-radius: inherit;
+            width: 80%;
+        }
+
+        input[type="search"]::placeholder {
+            color: #bbb;
+        }
+
+        button[type="submit"] {
+            text-indent: -999px;
+            overflow: hidden;
+            width: 20%;
+            padding: 0;
+            margin: 0;
+            border: 1px solid transparent;
+            border-radius: inherit;
+            background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+            cursor: pointer;
+            opacity: 0.7;
+        }
+
+        button[type="submit"]:hover {
+            opacity: 1;
+        }
+
+        button[type="submit"]:focus,
+        input[type="search"]:focus {
+            box-shadow: 0 0 3px 0 #323537;
+            border-color: #303437;
+            outline: none;
+        }
+
+        .head2 nav {
+            height: 40px;
+            background-color: white;
+            box-shadow: -1px 0px 7px #ffffff, 3px 3px 10px #ceced1;
+        }
+
+
+        .head2 nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style-type: none;
+            padding: 10px;
+
+        }
+
+       
+       
+
+        .head2 nav ul li a {
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            color: #736389;
+            text-decoration: none;
+            font-size: 80%;
+            font-weight: 700;
+           
+        }
+        .head2 nav ul li{
+            display: flex;
+            margin-right: 50px;
+        }
+        @media only screen and (max-width: 1024px) {
+            .head2 nav ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+
+            }
+            .head2 nav ul li{
+                    margin-right: 25px;
+                }
+        }
+        @media only screen and (max-width: 768px) {
+            .head2 nav ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+
+            }
+            .head2 nav ul li{
+                    margin-right: 15px;
+                }
+        }
+        @media only screen and (max-width: 425px) {
+            .head2 nav ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+
+            }
+            .head2 nav ul li{
+                    margin-right: 25px;
+                }
+        }
+
+
+        .head2 nav ul li a:hover {
+            color: #17258f;
+            border-bottom: 2px solid #430269;
+        }
+
+        main {
+            height: auto;
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+            aspect-ratio: 3/2;
+        }
+
+
+        .box {
+            display: flex;
+            width: 100%;
+            height: 50%;
+            justify-content: space-between;
+            box-shadow: 1px 2px 5px 1px rgb(181, 180, 180);
+
+        }
+        @media only screen and (max-width: 1440px) {
+            .box {
+                height: 500px;
+
+                .right {
+                    height: 400px;
+                    width: 400px;
+                }
+
+                .right img {
+                    height: 400px;
+                    width: 400px;
+                }
+            }
+        }
+        @media only screen and (max-width: 1024px) {
+            .box {
+                height: 600px;
+
+                .right {
+                    height: 400px;
+                    width: 500px;
+                }
+
+                .right img {
+                    height: 400px;
+                    width: 400px;
+                }
+            }
+
+        }
+        @media only screen and (max-width: 768px) {
+            .box {
+                height: 500px;
+
+                .right {
+                    height: 0px;
+                    width: 0px;
+                }
+
+                .right img {
+                    height: 0px;
+                    width: 0px;
+                }
+            }
+
+        }
+
+        @media only screen and (max-width: 500px) {
+            .box {
+                height: 800px;
+
+                .right {
+                    height: 0px;
+                    width: 0px;
+                }
+
+                .right img {
+                    height: 0px;
+                    width: 0px;
+                }
+            }
+
+        }
+
+
+        .btn {
+            display: flex;
+            margin-top: 30px;
+            margin-left: 40%;
+            border-radius: 5px;
+            font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+            cursor: pointer;
+            padding: 12px;
+            border-style: none;
+            background-color: rgb(204, 209, 209);
+            color: black;
+        }
+
+        .btn:hover {
+            background-color: rgb(96, 6, 121);
+            color: white;
+        }
+
+        .left,
+        .right {
+            margin: 70px 50px 0px 50px;
+
+        }
+
+
+
+
+        .left {
+            font-size: x-large;
+
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: #17258f;
+
+
+        }
+
+        .left h1 {
+            opacity: 0;
+            animation: topSideAni 1s ease forwards;
+        }
+
+        @keyframes leftSideAni {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+
+
+        .left h3 {
+            margin-top: 20px;
+            color: #37425a;
+            opacity: 0;
+            animation: leftSideAni 1s ease forwards;
+            animation-delay: 1s;
+
+        }
+
+        .left p {
+            font-size: medium;
+            color: rgba(128, 128, 128, 0.748);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            opacity: 0;
+            animation: leftSideAni 1s ease forwards;
+            animation-delay: 2s;
+        }
+
+        .btn {
+            opacity: 0;
+            animation: bottomSideAni 1s ease forwards;
+            animation-delay: 3s;
+
+        }
+
+        @keyframes topSideAni {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bottomSideAni {
+            0% {
+                transform: translateZ(-100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateZ(0);
+                opacity: 1;
+            }
+        }
+
+        .right {
+            height: 400px;
+            width: 600px;
+
+        }
+
+        .right img {
+            height: 450px;
+            width: 550px;
+            background-size: cover;
+            filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+
+        }
+
+        .main2 {
+
+            background-color: rgb(235, 232, 232);
+            align-items: center;
+            padding-top: 1px;
+        }
+
+        .cardlayout {
+            display: flex;
+            justify-content: space-around;
+            height: 500px;
+            margin-top: 40px;
+        }
+
+
+        .cardlayout .card {
+
+            height: 350px;
+            width: 300px;
+            border: 1px solid black;
+            border-radius: 15px;
+            border-style: none;
+            box-shadow: 0 4px 16px 0 rgba(77, 76, 76, 0.2);
+            transition: 0.3s;
+            background-color: whitesmoke;
+
+        }
+        @media only screen and (max-width: 1024px) {
+            .cardlayout {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin-top: 700px;
+                padding-bottom: 700px;
+            }
+
+            .card {
+                margin: 40px;
+            }
+            
+        }
+        
+        @media only screen and (max-width: 768px) {
+            .cardlayout {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin-top: 200px;
+                padding-bottom: 200px;
+
+                .card {
+                    display: flex;
+                    margin: 20px;
+                    height: 100px;
+                    width: 350px;
+
+
+                }
+
+                .card img {
+                    display: flex;
+                    flex-direction: row;
+                    height: 100px;
+                    width: 20px;
+                }
+            }
+
+        }
+
+        @media only screen and (max-width: 425px) {
+            .cardlayout {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin-top: 200px;
+                padding-bottom: 200px;
+
+                .card {
+                    display: flex;
+                    margin: 20px;
+                    height: 100px;
+                    width: 350px;
+
+
+                }
+
+                .card img {
+                    display: flex;
+                    flex-direction: row;
+                    height: 100px;
+                    width: 20px;
+                }
+            }
+
+        }
+
+        .card img {
+            border-radius: 15px;
+            height: 200px;
+            width: 250px;
+            background-size: cover;
+
+        }
+
+        .card:hover {
+
+            background-color: white;
+            box-shadow: 0px 0px 20px 2px rgb(77, 75, 75);
+
+        }
+
+        .contain {
+            padding: 2px 16px;
+        }
+
+        .card a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .headingcard h1 {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            font-weight: 700;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .contain h3 {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .contain p {
+            color: grey;
+        }
+
+
+
+        footer {
+            padding: 30px;
+            background-color: rgb(0, 0, 0);
+        }
+
+
+
+
+        footer ul {
+            color: rgb(180, 180, 180);
+            cursor: pointer;
+            padding-top: 10px;
+            list-style-type: none;
+        }
+
+        footer ul li:hover {
+            color: rgb(255, 255, 255);
+        }
+
+        .foot {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .foot ul strong {
+            color: white;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: medium;
+
+        }
+
+        .foot ul li {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 12px;
+
+        }
+        @media  only screen and (max-width:500px) {
+            .foot ul li{
+    
+                font-size: x-small;
+            }
+            .foot ul strong {
+                
+                font-size: small;
+            }
+        }
+
+        .copyright {
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            font-size: 12px;
+        }
+
+        @media only screen and (max-width: 1000px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav li {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+
+            .container {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+
+            form {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <header>
+
+        <div class="head">
+            <nav>
+
+                <ul>
+                    <div class="brand">
+                        <h2>CodeZone </h2>
+                    </div>
+                    
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Help</a></li>
+                    <form action="" class="search-bar">
+                        <div class="container">
+                            <input type="search" placeholder="Search...">
+                            <button type="submit">Search</button>
+                        </div>
+                    </form>
+                </ul>
+            </nav>
+        </div>
+        <div class="head2">
+            <nav>
+                <ul>
+
+                    <li><a href="https://www.codewithharry.com/tutorial/html-home/" class="link">HTML</a></li>
+                    <li><a href="https://www.codewithharry.com/tutorial/css-home/" class="link">CSS</a></li>
+                    <li><a href="https://www.codewithharry.com/tutorial/js/" class="link">JAVASCRIPT</a></li>
+                    <li><a href="https://www.codewithharry.com/tutorial/python/" class="link">Python</a></li>
+                    <li><a href="https://www.codewithharry.com/tutorial/c/" class="link">C</a></li>
+                    <li><a href="https://www.codewithharry.com/tutorial/cplusplus/" class="link">C++</a></li>
+                    <li><a href="https://www.codewithharry.com/tutorial/java/" class="link">JAVA</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+    <main>
+        <div class="box">
+            <div class="left">
+                <h1>Learn Coding and Web Designing ! !</h1>
+                <h3>The Ultimate Guide To Ace <br> SDE Interviews.</h3><br>
+                <p>Confused on which course to take? I have got you covered. Browse courses and find out the best course
+                    for you. Its free! Code Zone is my attempt to teach basics and those coding techniques to
+                    people in short time which took me ages to learn.
+                </p>
+                <button class="btn">Get Started Now!</button>
+
+            </div>
+            <div class="right">
+                <img src="computer.jpeg" alt="cs">
+            </div>
+        </div>
+        <div class="main2">
+            <div class="headingcard">
+                <h1>INTERVIEW COURSES</h1>
+
+            </div>
+            <div class="cardlayout">
+                <div class="card">
+                    <a href="#"><img src="coding.jpeg" alt="Avatar" style="width:100%">
+                        <div class="contain">
+                            <h3>Interview Preparation</h3><br>
+                            <p> For Data Structures and Algorithms in C++</p>
+                    </a>
+                </div>
+            </div>
+            <div class="card">
+                <a href="#"><img src="coding.jpeg" alt="Avatar" style="width:100%">
+                    <div class="contain">
+                        <h3>Interview Preparation</h3><br>
+                        <p> For Java Script</p>
+                </a>
+            </div>
+        </div>
+        <div class="card">
+            <a href="#"><img src="coding.jpeg" alt="Avatar" style="width:100%">
+                <div class="contain">
+                    <h3>Interview Preparation</h3><br>
+                    <p> For MERN Stack Development</p>
+            </a>
+        </div>
+        </div>
+        <div class="card">
+            <a href="#"><img src="coding.jpeg" alt="Avatar" style="width:100%">
+                <div class="contain">
+                    <h3>Interview Preparation</h3><br>
+                    <p> For Full Stack Development</p>
+            </a>
+        </div>
+        </div>
+        </div>
+        </div>
+    </main>
+    <footer>
+        <div class="foot">
+            <div class="foot1">
+
+                <ul>
+                    <strong id="contact">CONTACT US</strong>
+                    <li>About</li>
+                    <li>Career</li>
+                    <li>Legal</li>
+                    <li>Advisory</li>
+                    <li>Advertise</li>
+                </ul>
+            </div>
+            <div class="foot2">
+
+                <ul>
+                    <strong>COMPANY</strong>
+                    <li>Payments</li>
+                    <li>Report Infringement</li>
+                    <li>Cleartrip</li>
+                    <li>Corporate Info</li>
+                    <li>FAQ</li>
+                </ul>
+            </div>
+            <div class="foot3">
+
+                <ul>
+                    <strong>CONSUMER POLICY</strong>
+                    <li>Terms of use</li>
+                    <li>Security</li>
+                    <li>Privacy</li>
+                    <li>Grievance Redressal</li>
+                    <li>EPR Compliance</li>
+                </ul>
+            </div>
+            <div class="foot4">
+
+                <ul>
+                    <strong>SOCIAL</strong>
+                    <li>Youtube</li>
+                    <li>Facebook</li>
+                    <li>Instagram</li>
+
+                </ul>
+
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; CodeZone LLC 2024
+        </div>
+    </footer>
+</body>
+
+</html>
